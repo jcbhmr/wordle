@@ -1,7 +1,0 @@
-{
-  "name": "conan",
-  "id": "conan",
-  "version": "1.0.0",
-  "description": "The open source, decentralized and multi-platform package manager to create and share all your native binaries.",
-  "documentationURL": "https://docs.conan.io/en/latest/introduction.html"
-}
