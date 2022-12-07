@@ -1,9 +1,0 @@
-{
-  "files.associations": {
-    "*.mxx": "cpp",
-    "*.importmap": "json",
-    "*.overpassql": "c",
-    "*.mapml": "xml",
-    "future": "cpp"
-  }
-}
