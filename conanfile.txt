@@ -1,0 +1,9 @@
+[requires]
+cpr/1.9.0
+fmt/9.1.0
+nlohmann_json/3.11.2
+argparse/2.9
+ftxui/3.0.0
+
+[generators]
+cmake
