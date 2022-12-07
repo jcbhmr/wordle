@@ -1,0 +1,7 @@
+{
+  "name": "xmake",
+  "id": "xmake",
+  "version": "1.0.0",
+  "description": "A cross-platform build utility based on Lua",
+  "documentationURL": "https://xmake.io/#/about/introduction"
+}

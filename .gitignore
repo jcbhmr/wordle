@@ -1,5 +1,14 @@
-# CMake Tools VS Code extension auto-compilation target folder
-/build/
+# The VS Code settings.json is just a bunch of auto-generated C++ metadata.
+.vscode/settings.json
+
+#region https://github.com/xmake-io/xmake/blob/master/tests/projects/package/conan/.gitignore
+# Xmake cache
+.xmake/
+build/
+
+# MacOS Cache
+.DS_Store
+#endregion
 
 #region https://github.com/github/gitignore/blob/main/CMake.gitignore
 CMakeLists.txt.user
