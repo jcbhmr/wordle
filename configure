@@ -10,7 +10,7 @@
 # - conan: Install conan::* dependencies from xmake.lua
 # - asciinema: Record and publish test/user interactions
 # - agg: Convert .assinema.json files to .gif animations
-# - clang-format: Format C++ code
+### - clang-format: Format C++ code
 
 if ! command -V xmake; then
   # https://xmake.io/#/getting_started?id=installation
@@ -40,8 +40,8 @@ if ! command -V agg; then
   command -V agg
 fi
 
-if ! command -V clang-format; then
-  # https://www.electronjs.org/docs/latest/development/clang-format#:~:text=You%20can%20install%20clang%2Dformat,on%20macOS%2FLinux%2FWindows.
-  npm install -g clang-format
-  command -V clang-format
-fi
+# if ! command -V clang-format; then
+#   # https://www.electronjs.org/docs/latest/development/clang-format#:~:text=You%20can%20install%20clang%2Dformat,on%20macOS%2FLinux%2FWindows.
+#   npm install -g clang-format
+#   command -V clang-format
+# fi
