@@ -1,5 +1,8 @@
+#pragma once
+#include <future>
 #include <string>
+#include "Response.h"
 
 namespace fetch {
-void fetch(std::string url);
+std::future<fetch::Response> fetch(const std::string& url);
 }  // namespace fetch
