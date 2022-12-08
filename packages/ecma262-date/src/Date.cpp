@@ -19,7 +19,7 @@ ecma262_date::Date::Date(const std::string& date) {
   this->m_time = std::chrono::system_clock::from_time_t(std::mktime(&tm));
 }
 
-std::string ecma262_date::Date::toISOString() {
+std::string ecma262_date::Date::toISOString() const {
   auto time = std::chrono::system_clock::to_time_t(this->m_time);
   std::stringstream ss;
   // https://stackoverflow.com/a/36927792
@@ -27,6 +27,11 @@ std::string ecma262_date::Date::toISOString() {
   return ss.str();
 }
 
-ecma262_date::Date::operator std::string() {
+ecma262_date::Date::operator std::string() const {
   return this->toISOString();
+}
+
+unsigned long long ecma262_date::Date::operator+() const {
+  auto ms = this->m_time.time_since_epoch();
+  return std::chrono::duration_cast<std::chrono::milliseconds>(ms).count();
 }

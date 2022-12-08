@@ -9,6 +9,6 @@ int main() {
 
   auto path = __dirname + "/lorem.txt";
   std::cout << "Contents of " << path << "\n";
-  auto result = fs::promises::readFile(path);
+  auto result = fs::readFileSync(path);
   std::cout << result << "\n";
 }

@@ -1,3 +1,4 @@
+#pragma once
 #include <chrono>
 #include <string>
 
@@ -10,8 +11,9 @@ class Date {
   Date();
   Date(const std::string& date);
 
-  std::string toISOString();
+  std::string toISOString() const;
 
-  operator std::string();
+  operator std::string() const;
+  unsigned long long operator+() const;
 };
 }  // namespace ecma262_date

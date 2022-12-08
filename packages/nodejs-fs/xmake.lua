@@ -9,10 +9,10 @@ target("nodejs-fs") do
   add_headerfiles("src/*.h", {prefixdir = "nodejs-fs"})
 end
 
-target("nodejs-fs/test/readFile") do
+target("nodejs-fs/test/readFileSync") do
   set_kind("binary")
   set_languages("clatest", "cxxlatest")
-  add_files("test/readFile.cpp")
+  add_files("test/readFileSync.cpp")
   add_deps("nodejs-fs")
   add_defines("DIRNAME=\""..os.scriptdir().."/test\"")
 end
