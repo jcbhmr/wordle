@@ -1,6 +1,3 @@
-# The VS Code settings.json is just a bunch of auto-generated C++ metadata.
-.vscode/settings.json
-
 #region https://github.com/xmake-io/xmake/blob/master/tests/projects/package/conan/.gitignore
 # Xmake cache
 .xmake/

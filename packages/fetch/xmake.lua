@@ -1,6 +1,6 @@
 target("fetch")
   set_kind("static")
-  add_packages("ftxui", "nlohmann_json")
+  add_packages("cpr")
   add_files("src/*.cxx")
   add_headerfiles("src/*.hxx")
   add_deps("fetch")

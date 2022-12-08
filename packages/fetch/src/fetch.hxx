@@ -1,3 +1,5 @@
+#include <string>
+
 namespace fetch {
-void fetch();
+void fetch(std::string url);
 }  // namespace fetch

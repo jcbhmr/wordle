@@ -1,0 +1,11 @@
+#!/bin/bash -e
+
+if ! command -v conan; then
+  pip install conan
+  conan profile new default --detect
+  conan profile update settings.compiler.libcxx=libstdc++11 default
+done
+
+if ! command -v xmake; then
+  bash <(curl -fsSL https://xmake.io/shget.text)
+done
