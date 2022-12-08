@@ -8,9 +8,16 @@ target("fetch") do
   add_packages("cpr")
 end
 
-target("test:example.org") do
+target("test:example") do
   set_kind("binary")
   set_languages("clatest", "cxxlatest")
-  add_files("test/example.org.cpp")
+  add_files("test/example.cpp")
+  add_deps("fetch")
+end
+
+target("test:json") do
+  set_kind("binary")
+  set_languages("clatest", "cxxlatest")
+  add_files("test/json.cpp")
   add_deps("fetch")
 end

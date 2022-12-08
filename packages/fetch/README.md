@@ -29,5 +29,17 @@ int main() {
 }
 ```
 
+## Development
+
+You can run the test suite with xmake using the binary build targets. Running
+with an unspecified target will run _all_ binary targets.
+
+⚠️ Make sure you use the `-P.` flag so that xmake uses the current directory,
+not the root project directory!
+
+```sh
+xmake -P. && xmake r -P.
+```
+
 [fetch standard]: https://fetch.spec.whatwg.org/
 [libcpr/cpr]: https://github.com/libcpr/cpr#readme
