@@ -1,3 +1,6 @@
 {
-  "recommendations": ["dave-deletethis.midl-webidl-syntax"]
+  "recommendations": [
+    "dave-deletethis.midl-webidl-syntax",
+    "ms-vscode.cpptools-extension-pack"
+  ]
 }

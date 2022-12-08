@@ -21,3 +21,5 @@
   ❌ Create a URLSearchParams class
   ❌ Create a URL class
 ❌ Create an html-base64 subpackage for atob() and btoa()
+❌ Document how the tools/gen-repo-index.sh works
+❌ Add VS Code settings.json config for C++ formatting

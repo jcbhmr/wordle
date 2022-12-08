@@ -2,28 +2,32 @@
 #include <skyr/url.hpp>
 #include <string>
 
-html_location::Location::Location(const std::string &url) {}
+html_location::Location::Location(const std::string &url) : m_url(url) {}
 
-std::string html_location::Location::href() const { return ""; }
+std::string html_location::Location::href() const { return this->m_url.href(); }
 
-std::string html_location::Location::origin() const { return "null"; }
+std::string html_location::Location::origin() const {
+  return this->m_url.origin();
+}
 
-std::string html_location::Location::protocol() const { return "file:"; }
+std::string html_location::Location::protocol() const {
+  return this->m_url.protocol();
+}
 
-std::string html_location::Location::host() const { return ""; }
+std::string html_location::Location::host() const { return this->m_url.host(); }
 
-std::string html_location::Location::hostname() const { return ""; }
+std::string html_location::Location::hostname() const {
+  return this->m_url.hostname();
+}
 
-std::string html_location::Location::port() const { return ""; }
+std::string html_location::Location::port() const { return this->m_url.port(); }
 
-std::string html_location::Location::pathname() const { return "/"; }
+std::string html_location::Location::pathname() const {
+  return this->m_url.pathname();
+}
 
-std::string html_location::Location::search() const { return ""; }
+std::string html_location::Location::search() const {
+  return this->m_url.search();
+}
 
-std::string html_location::Location::hash() const { return ""; }
-
-void html_location::Location::assign(const std::string &url) {}
-
-void html_location::Location::replace(const std::string &url) {}
-
-void html_location::Location::reload() {}
+std::string html_location::Location::hash() const { return this->m_url.hash(); }
