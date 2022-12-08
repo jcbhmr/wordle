@@ -20,3 +20,7 @@
 tools/gen-repo-index.sh
 xmake
 ```
+
+- https://github.com/ArthurSonzogni/git-tui/blob/master/src/log.cpp
+- https://github.com/ajeetdsouza/clidle
+- https://arthursonzogni.com/FTXUI/examples/?file=dom/dbox
