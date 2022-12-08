@@ -4,7 +4,7 @@
 
 <div align="center">
 
-![](test/__snapshot__/e2e.)
+![](test/__snapshot__/e2e.gif)
 
 <!--prettier-ignore-->
 **[Overview](https://github.com/jcbhmr/wordle#readme)**
@@ -13,3 +13,10 @@
 | [packages/html-location](https://github.com/jcbhmr/wordle/tree/main/packages/html-location#readme)
 
 </div>
+
+## Development
+
+```sh
+tools/gen-repo-index.sh
+xmake
+```

@@ -29,11 +29,11 @@ ancestorOrigins;
 
 namespace html_location {
 class Location {
-private:
+ private:
   skyr::url m_url;
 
-public:
-  Location(const std::string &url);
+ public:
+  Location(const std::string& url);
 
   std::string href() const;
   std::string origin() const;
@@ -45,4 +45,4 @@ public:
   std::string search() const;
   std::string hash() const;
 };
-} // namespace html_location
+}  // namespace html_location

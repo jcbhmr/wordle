@@ -1,3 +1,7 @@
+set_project("fetch")
+set_version("1.0.0")
+set_xmakever("2.7.3") -- As of 2022/12/07, this is the latest version of xmake.
+
 add_requires("conan::cpr/1.9.0", {alias="cpr"})
 
 target("fetch") do
@@ -8,14 +12,14 @@ target("fetch") do
   add_packages("cpr")
 end
 
-target("test:example") do
+target("fetch/test/example") do
   set_kind("binary")
   set_languages("clatest", "cxxlatest")
   add_files("test/example.cpp")
   add_deps("fetch")
 end
 
-target("test:json") do
+target("fetch/test/json") do
   set_kind("binary")
   set_languages("clatest", "cxxlatest")
   add_files("test/json.cpp")
