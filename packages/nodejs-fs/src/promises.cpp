@@ -5,6 +5,8 @@
 #include <streambuf>
 #include <string>
 
+// TODO: Make readFile() actually return an std::future<std::string>
+
 // std::future<std::string>
 std::string nodejs::fs::promises::readFile(const std::string& path) {
   // https://stackoverflow.com/a/2602060
