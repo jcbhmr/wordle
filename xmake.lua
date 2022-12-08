@@ -42,4 +42,9 @@ target("wordle") do
     cprint("${yellow}Don't forget to run the tools/gen-repo-index.sh script!")
     cprint("${yellow}It keeps your local builds of the subpackages up to date.")
   end)
+  after_build(function (target)
+    cprint("${blue}Copy assets/dict/official.json -> ~/.config/wordle/dict.json")
+    os.mkdir(os.getenv("HOME") .. "/.config/wordle")
+    os.cp("assets/dict/official.json", os.getenv("HOME") .. "/.config/wordle/dict.json")
+  end)
 end

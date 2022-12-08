@@ -17,6 +17,7 @@ target("fetch/test/example") do
   set_languages("clatest", "cxxlatest")
   add_files("test/example.cpp")
   add_deps("fetch")
+  add_packages("cpr")
 end
 
 target("fetch/test/json") do
@@ -24,4 +25,5 @@ target("fetch/test/json") do
   set_languages("clatest", "cxxlatest")
   add_files("test/json.cpp")
   add_deps("fetch")
+  add_packages("cpr")
 end
