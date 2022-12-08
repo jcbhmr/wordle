@@ -5,7 +5,7 @@
 #include <nlohmann/json.hpp>
 #include <string>
 #include <vector>
-#include "ftxui.h"
+#include "ftxui-index.h"
 
 #include <chrono>
 #include <ctime>
