@@ -1,0 +1,18 @@
+<!-- These MAY become Issues in the future -->
+
+- [x] Create the repository
+- [x] Create subpackages
+- [x] Get xmake to build a hello-world project
+- [x] Get xmake to work with Conan packages
+- [x] Get xmake to build & use subprojects
+- [x] Record documentation about how I got the project working
+- [ ] Get a good word list
+- [ ] Create a `fetch` subpackage
+  - [ ] Make it actually fetch a URL
+  - [ ] Give it a `.text()` method
+  - [ ] Give it a `.json()` method
+- [ ] Create an `ecma262-date` subpackage
+  - [ ] Give it a `.toLocaleString()` method
+  - [ ] Give it a `.toLocaleTimeString()` method
+  - [ ] Give it a `.toLocaleDateString()` method
+  - [ ] Give it a `.toISOString()` method
