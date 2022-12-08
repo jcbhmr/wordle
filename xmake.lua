@@ -38,4 +38,8 @@ target("wordle") do
   set_languages("clatest", "cxxlatest")
   add_files("src/*.cpp")
   add_packages("ftxui", "nlohmann_json", "fetch", "argparse")
+  on_load(function (target)
+    cprint("${yellow}Don't forget to run the tools/gen-repo-index.sh script!")
+    cprint("${yellow}It keeps your local builds of the subpackages up to date.")
+  end)
 end
