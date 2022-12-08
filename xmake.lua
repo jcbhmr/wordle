@@ -29,7 +29,7 @@ add_requires("conan::argparse/2.9", {alias="argparse"})
 -- 📚 Docs: https://xmake.io/#/package/local_package?id=default-packaging-format
 -- 📚 Docs: https://xmake.io/#/manual/global_interfaces?id=add_repositories
 add_repositories("local-repo build", {rootdir = os.scriptdir()})
-add_requires("fetch")
+add_requires("fetch", "ecma262-date", "nodejs-fs")
 
 -- This is the root target for the worlde binary. This is the main entry point
 -- of the project. Expect the CLI main() function to be in src/cli.cpp.
@@ -37,7 +37,8 @@ target("wordle") do
   set_kind("binary")
   set_languages("clatest", "cxxlatest")
   add_files("src/*.cpp")
-  add_packages("ftxui", "nlohmann_json", "fetch", "argparse")
+  add_packages("ftxui", "nlohmann_json", "argparse")
+  add_packages("fetch", "ecma262-date", "nodejs-fs")
   before_build(function (target)
     cprint("${yellow}Don't forget to run the tools/gen-repo-index.sh script!")
     cprint("${yellow}It keeps your local builds of the subpackages up to date.")
