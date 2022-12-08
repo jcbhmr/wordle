@@ -1,11 +1,13 @@
-#region https://github.com/xmake-io/xmake/blob/master/tests/projects/package/conan/.gitignore
-# Xmake cache
-.xmake/
-build/
-
-# MacOS Cache
-.DS_Store
-#endregion
+# This allows ONLY the e2e.gif to be committed
+test/__snapshot__/*
+!test/__snapshot__/e2e.gif
+# xmake cache
+.xmake
+# This allows ONLY the build/packages folder to be committed
+build
+!/build
+build/*
+!/build/packages
 
 #region https://github.com/github/gitignore/blob/main/CMake.gitignore
 CMakeLists.txt.user

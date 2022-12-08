@@ -14,3 +14,10 @@
   ❌ Give it a .toLocaleTimeString() method
   ❌ Give it a .toLocaleDateString() method
   ❌ Give it a .toISOString() method
+❌ Create an html-sessionstorage subpackage for env var access
+  ❌ Give it a .getItem() method
+❌ Create an html-location subpackage for argv access
+❌ Create a url subpackage for URL parsing and processing
+  ❌ Create a URLSearchParams class
+  ❌ Create a URL class
+❌ Create an html-base64 subpackage for atob() and btoa()

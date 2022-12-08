@@ -1,0 +1,2 @@
+# This makes all the generated package code not count towards GitHub's stats.
+build/packages/** linguist-vendored

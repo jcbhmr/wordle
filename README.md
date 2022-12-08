@@ -1,2 +1,13 @@
-# wordle
-📘 Wordle game in the terminal using C++ &amp; FTXUI
+# Wordle
+
+📘 Wordle game in the terminal using C++ & FTXUI
+
+<div align="center">
+
+![](test/__snapshot__/e2e.)
+
+<!--prettier-ignore-->
+[Overview](https://github.com/jcbhmr/wordle#readme)
+| **[Dev wiki](https://github.com/jcbhmr/wordle/tree/main/wiki)**
+
+</div>

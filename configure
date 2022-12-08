@@ -1,11 +1,47 @@
 #!/bin/bash -e
+# Configure dependencies and workspace for development on your local machine
+#
+# Ideally these dependency installations would be handled by devcontainer
+# features, but they aren't. Thus, we are stuck with running this logic before
+# doing any real development.
+#
+# We need:
+# - xmake: Configure and run the build system
+# - conan: Install conan::* dependencies from xmake.lua
+# - asciinema: Record and publish test/user interactions
+# - agg: Convert .assinema.json files to .gif animations
+# - clang-format: Format C++ code
 
-if ! command -v conan; then
+if ! command -V xmake; then
+  # https://xmake.io/#/getting_started?id=installation
+  bash <(curl -fsSL https://xmake.io/shget.text)
+  command -V xmake
+fi
+
+if ! command -V conan; then
+  # https://docs.conan.io/en/1.53/installation.html#install-with-pip-recommended
   pip install conan
+  # https://docs.conan.io/en/1.53/getting_started.html#:~:text=the%20build%20system%3A-,Important,-If%20you%20are
   conan profile new default --detect
   conan profile update settings.compiler.libcxx=libstdc++11 default
-done
+  command -V conan
+fi
 
-if ! command -v xmake; then
-  bash <(curl -fsSL https://xmake.io/shget.text)
-done
+if ! command -V asciinema; then
+  # https://asciinema.org/docs/installation
+  sudo pip3 install asciinema
+  command -V asciinema
+fi
+
+if ! command -V agg; then
+  # https://github.com/asciinema/agg/releases/tag/v1.3.0
+  curl -fsSLo /home/codespace/.local/bin/agg https://github.com/asciinema/agg/releases/download/v1.3.0/agg-x86_64-unknown-linux-gnu
+  chmod +x /home/codespace/.local/bin/agg
+  command -V agg
+fi
+
+if ! command -V clang-format; then
+  # https://www.electronjs.org/docs/latest/development/clang-format#:~:text=You%20can%20install%20clang%2Dformat,on%20macOS%2FLinux%2FWindows.
+  npm install -g clang-format
+  command -V clang-format
+fi
