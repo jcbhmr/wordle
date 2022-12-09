@@ -4,16 +4,16 @@
 ✅ Get xmake to work with Conan packages
 ✅ Get xmake to build & use subprojects
 ✅ Record documentation about how I got the project working
-❌ Get a good word list
-❌ Create a fetch subpackage
-  ❌ Make it actually fetch a URL
-  ❌ Give it a .text() method
+✅ Get a good word list
+✅ Create a fetch subpackage
+  ✅ Make it actually fetch a URL
+  ✅ Give it a .text() method
   ❌ Give it a .json() method
-❌ Create an ecma262-date subpackage
+✅ Create an ecma262-date subpackage
   ❌ Give it a .toLocaleString() method
   ❌ Give it a .toLocaleTimeString() method
   ❌ Give it a .toLocaleDateString() method
-  ❌ Give it a .toISOString() method
+  ✅ Give it a .toISOString() method
 ❌ Create an html-sessionstorage subpackage for env var access
   ❌ Give it a .getItem() method
 ❌ Create an html-location subpackage for argv access
