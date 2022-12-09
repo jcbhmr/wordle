@@ -20,4 +20,5 @@ class Board {
  public:
   std::vector<LetterResult> guess(const std::string& guess);
   bool won() const;
+  bool lost() const;
 };

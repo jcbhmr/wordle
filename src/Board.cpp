@@ -1,11 +1,15 @@
 #include "Board.h"
+#include <iostream>
 #include <stdexcept>
 #include <string>
 #include <utility>
 #include <vector>
 #include "LetterResult.h"
 
-Board::Board(const std::string& word) : m_word(word) {}
+Board::Board(const std::string& word) : m_word(word) {
+  std::transform(this->m_word.cbegin(), this->m_word.cend(),
+                 this->m_word.begin(), [](char c) { return std::toupper(c); });
+}
 
 std::vector<std::pair<std::string, std::vector<LetterResult>>> Board::guesses()
     const {
@@ -45,15 +49,22 @@ std::vector<LetterResult> Board::guess(const std::string& guess) {
   // guess="HELLO" and this->m_word="HELLO" ==> letterResults=[🟩, 🟩, 🟩, 🟩, 🟩]
   auto letterResults = std::vector<LetterResult>();
   for (std::size_t i = 0; i < guess.size(); i++) {
-    auto letter = guess[i];
     auto letterResult = LetterResult::GRAY;
-    if (letter == this->m_word[i]) {
+    if (guess[i] == this->m_word[i]) {
       letterResult = LetterResult::GREEN;
-    } else if (this->m_word.find(letter) != std::string::npos) {
+    } else if (this->m_word.find(guess[i]) != std::string::npos) {
       letterResult = LetterResult::YELLOW;
     }
     letterResults.push_back(letterResult);
   }
+
+  // std::cout << "guess=" << guess << std::endl;
+  // std::cout << "this->m_word=" << this->m_word << std::endl;
+  // std::cout << "letterResults=[";
+  // for (auto letterResult : letterResults) {
+  //   std::cout << (int)letterResult << ", ";
+  // }
+  // std::cout << "]" << std::endl;
 
   this->m_guesses.push_back(std::make_pair(guess, letterResults));
   return letterResults;
@@ -67,4 +78,8 @@ bool Board::won() const {
   auto lastGuess = this->m_guesses.back();
   auto lastGuessWord = lastGuess.first;
   return lastGuessWord == this->m_word;
+}
+
+bool Board::lost() const {
+  return this->m_guesses.size() >= 6 && !this->won();
 }
