@@ -69,18 +69,18 @@ int main(int argc, char** argv) {
   auto validGuesses = dict["validGuesses"].get<std::vector<std::string>>();
   auto dateOffsetString = dict["dateOffset"].get<std::string>();
   auto dateOffset = Date(dateOffsetString);
-  auto dailyAnwers = dict["dailyAnswers"].get<std::vector<std::string>>();
+  auto dailyAnswers = dict["dailyAnswers"].get<std::vector<std::string>>();
 
   auto differenceMs = +date - +dateOffset;
   auto differenceDays =
       static_cast<std::size_t>(differenceMs / (1000 * 60 * 60 * 24));
-  if (differenceDays >= dailyAnwers.size()) {
+  if (differenceDays >= dailyAnswers.size()) {
     throw new std::runtime_error(
         "differenceDays " + std::to_string(differenceDays) +
         " is greater than or equal to dailyAnwers.size() " +
-        std::to_string(dailyAnwers.size()));
+        std::to_string(dailyAnswers.size()));
   }
-  auto todaysWord = dailyAnwers[differenceDays];
+  auto todaysWord = dailyAnswers[differenceDays];
 
   if (parser.get<bool>("answer")) {
     std::cout << todaysWord << "\n";
