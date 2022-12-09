@@ -1,0 +1,133 @@
+
+
+  // std::cout << "differenceDays: " << differenceDays << "\n";
+  // std::cout << "todaysWord: " << todaysWord << "\n";
+  // std::cout << "date: " << date.toISOString() << "\n";
+
+  // Now we move onto showing the fancy FTXUI stuff. We need to...
+  // 1. Create a table that starts out completely blank with 5 columns and 6
+  // rows.
+  //     This is the Wordle workspace. The user will type keys on the keyboard,
+  //     and the table will update to show the user's progress.
+  // 2. Dynamically change the content and "selected row" of the table to show
+  // that
+  //     the user has typed a correct letter. This means we need an external set
+  //     of variables to track that.
+  // 3. Register all the event listeners we need to handle user input.
+
+  auto table = std::vector<std::vector<std::string>>();
+  for (int i = 0; i < 6; i++) {
+    auto row = std::vector<std::string>();
+    for (int j = 0; j < 5; j++) {
+      row.push_back("");
+    }
+    table.push_back(row);
+  }
+  auto table = Table(tableRows);
+
+  auto document = table.Render();
+  auto screen = Screen::Create(Dimension::Fit(document));
+  Render(screen, document);
+  screen.Print();
+  std::cout << "\n";
+
+  auto renderer = Renderer([&] {
+    Elements elements;
+    elements.push_back(hbox({
+        text(author) | xflex,
+    }));
+  });
+  auto screen = ScreenInteractive::TerminalOutput();
+  screen.Loop(renderer);
+  std::cout << "\n";
+
+
+ // // This is a lambda function that is run every "frame" of the game. It
+  // returns
+  // // a tree of stuff that is rendered by FTXUI.
+  // //
+  // // In here, we have:
+  // // 1. A header that says "Wordle".
+  // // 2. A table that shows the guesses and their LetterResults.
+  // //     - This is a table with 5 columns and 6 rows.
+  // //     - Each cell contains the guess letter or a space.
+  // //     - Each row has cells that are colored based on the LetterResult.
+  // //         - GRAY => <no color>
+  // //         - YELLOW => yellow
+  // //         - GREEN => green
+  // // 3. An input box that allows the user to guess a word.
+  // auto renderer = Renderer([&] {
+  //   auto header = text(L"Wordle") | hcenter | bold | color(Color::Blue);
+
+  //   auto guesses = board.guesses();
+  //   std::vector<std::vector<Element>> table;
+
+  //   for (std::size_t i = 0; i < 5; i++) {
+  //     std::vector<Element> row;
+  //     for (std::size_t j = 0; j < 6; j++) {
+  //       row.push_back(text(L" "));
+  //     }
+  //     table.push_back(row);
+  //   }
+
+  //   // Loop from 0 to 5. This is the row number. Inside that, we loop from 0
+  //   // to 4. This is the column number. After we have I and J, we use these
+  //   to
+  //   // build a parallel table of Elements. These elements are the color-coded
+  //   // and letter display results from the guesses so far. If there isn't a
+  //   // guess for a row, it's filled with spaces. There are no partial rows.
+  //   All
+  //   // rows are 100% guaranteed to be 5 characters.
+  //   for (std::size_t i = 0; i < 5; i++) {
+  //     // First, we pull out the guess and the letter results. If this would
+  //     be
+  //     // out-of-bounds, we default to an empty string (we will check for this
+  //     // later) and an empty array (we will also check for this later).
+  //     std::string guess;
+  //     std::vector<LetterResult> letterResults;
+  //     if (i < guesses.size()) {
+  //       guess = guesses[i].first;
+  //       letterResults = guesses[i].second;
+  //     }
+
+  //     // Next, we loop through the 5 letters in the guess.
+  //     for (std::size_t j = 0; j < 4; j++) {
+  //       // Now we pull out the letter and the letter result. If this would be
+  //       an
+  //       // out-of-bounds access, we default to a SPACE and a GRAY letter
+  //       result. char letter; LetterResult letterResult; if (j < guess.size())
+  //       {
+  //         letter = guess[j];
+  //         letterResult = letterResults[j];
+  //       } else {
+  //         letter = ' ';
+  //         letterResult = LetterResult::GRAY;
+  //       }
+
+  //       // Now we build the Element that will be displayed in the table. This
+  //       is
+  //       // a text() element with the letter in it. If the letter result is
+  //       // YELLOW, we add a yellow background. If the letter result is GREEN,
+  //       we
+  //       // add a green background. If it's GRAY, we don't add a background.
+  //       auto element = text(std::string(1, letter));
+  //       if (letterResult == LetterResult::YELLOW) {
+  //         element |= bgcolor(Color::Yellow);
+  //       } else if (letterResult == LetterResult::GREEN) {
+  //         element |= bgcolor(Color::Green);
+  //       }
+
+  //       // Finally, we add the element to the table. This should never be OOB
+  //       // since we build the table exactly the right size.
+  //       table[i][j] = element;
+  //     }
+  //   }
+
+  //   auto tableComponent = Table(table) | border;
+
+  //   return vbox({
+  //       header->Render(),
+  //       tableComponent->Render(),
+  //       guessInput->Render(),
+  //   });
+  // });
