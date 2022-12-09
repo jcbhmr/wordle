@@ -33,6 +33,10 @@ int main(int argc, char** argv) {
           "A JSON dictionary file to use "
           "(https://github.com/jcbhmr/wordle/blob/main/assets/dict/"
           "official.json)");
+  parser.add_argument("-a", "--answer")
+      .default_value(false)
+      .implicit_value(true)
+      .help("Show the answer word");
 
   // Parse the arguments
   try {
@@ -67,7 +71,7 @@ int main(int argc, char** argv) {
   auto dateOffset = Date(dateOffsetString);
   auto dailyAnwers = dict["dailyAnswers"].get<std::vector<std::string>>();
 
-  auto differenceMs = +Date() - +dateOffset;
+  auto differenceMs = +date - +dateOffset;
   auto differenceDays =
       static_cast<std::size_t>(differenceMs / (1000 * 60 * 60 * 24));
   if (differenceDays >= dailyAnwers.size()) {
@@ -77,6 +81,11 @@ int main(int argc, char** argv) {
         std::to_string(dailyAnwers.size()));
   }
   auto todaysWord = dailyAnwers[differenceDays];
+
+  if (parser.get<bool>("answer")) {
+    std::cout << todaysWord << "\n";
+    return 0;
+  }
 
   auto board = Board(todaysWord);
   // Here we just pass it all off to the render function. It handles the heavy
