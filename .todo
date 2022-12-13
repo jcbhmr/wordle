@@ -1,25 +1,38 @@
-✅ Create the repository
-✅ Create subpackages
-✅ Get xmake to build a hello-world project
-✅ Get xmake to work with Conan packages
-✅ Get xmake to build & use subprojects
-✅ Record documentation about how I got the project working
-✅ Get a good word list
-✅ Create a fetch subpackage
-  ✅ Make it actually fetch a URL
-  ✅ Give it a .text() method
-  ❌ Give it a .json() method
-✅ Create an ecma262-date subpackage
-  ❌ Give it a .toLocaleString() method
-  ❌ Give it a .toLocaleTimeString() method
-  ❌ Give it a .toLocaleDateString() method
-  ✅ Give it a .toISOString() method
-❌ Create an html-sessionstorage subpackage for env var access
-  ❌ Give it a .getItem() method
-❌ Create an html-location subpackage for argv access
-❌ Create a url subpackage for URL parsing and processing
-  ❌ Create a URLSearchParams class
-  ❌ Create a URL class
-❌ Create an html-base64 subpackage for atob() and btoa()
-❌ Document how the tools/gen-repo-index.sh works
-❌ Add VS Code settings.json config for C++ formatting
+MVP goals
+
+1.  ✅ Properly embody the wordle gameplay mechanics:
+    1.  6 tries
+    2.  5 letter words
+    3.  Indicate for each letter which of the three states:
+        1.  The player picked the right letter in the right spot
+        2.  The letter is in the word, but it's in the wrong spot
+        3.  The letter is not in the word
+    4.  Accurately calculate those states for each letter
+2.  ✅ Choose a good word
+    1.  It should change every so often to encourage repeat visits
+    2.  It should be somewhat stable to encourage retries
+    3.  It should be a fairly common word
+3.  ✅ Show some kind of "nice" UI to the user. This means more than just text. One of:
+    1.  Terminal ANSI colors
+    2.  FTXUI
+    3.  Unicode box art
+    4.  Emojis
+
+Stretch goals
+
+- Store user's score in a local file
+- ✅ Use an external word list from a .txt file or a URL
+  - <https://github.com/tabatkins/wordle-list>
+  - <https://autocode.com/emmanyel368/api/wordle-api/1.0.1/wordle/>
+  - <https://wordle-creator-tools-api.herokuapp.com/>
+- ✅ Show a fancy UI with FTXUI or some other Unicode box art
+- Support colorblind people with different color schemes
+- Add a share-able printout of how well you did
+  - <https://i.imgur.com/syfJELa.png>
+- ✅ Have a --help guide page
+- Have an actual man page
+- Support isatty() detection
+- Allow a no-color mode
+- Support basic "dumb" terminals with no ANSI or XTERM support
+- ✅ Allow arbitrary "on this day in history/future" time emulation
+- ✅ Allow just printing the answer via a flag
